@@ -1,0 +1,28 @@
+{
+  //https://developer.chrome.com/extensions/manifest
+  "manifest_version": 2,
+  "name": "Pushtext Pastebin",
+  "short_name" : "Pushtext",
+  "description": "Quickly share text/code by pushing it to pastebin.",
+  "version": "1.0",
+  "permissions": [ "https://*/*", "http://*/*", "tabs" , "storage", "contextMenus", "clipboardRead", "clipboardWrite"],
+  "author" : "Karandeep Singh Bhatia(karan173)",
+  "browser_action": {
+    "default_icon": "img/icon128.png",
+    "default_title": "Pushtext Pastebin!",
+    "default_popup": "html/popup.html"
+  },
+  "icons": { 
+   "48": "img/icon48.png",
+   "128": "img/icon128.png" 
+   },
+   "background": {
+    "page": "html/background.html"
+    }, 
+    "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": [ "js/script.js"]
+    }
+    ]
+}

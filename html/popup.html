@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pushtext Pastebin</title>
+	<script type="text/javascript" src="/libs/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript" src="/js/auth.js"></script>
+	<script type="text/javascript" src="/js/api.js"></script>
+	<script type="text/javascript" src="/js/clipboard.js"></script>
+	<script type="text/javascript" src="/js/popup.js"></script>
+</head>
+<body>
+	Hello
+	<div id="login-form" style="display:none">
+		<input type="text" name="user_name" id = "user_name">
+		<input type="password" name="user_password" id="user_password">
+		<input type="submit" id="login-submit">
+	</div>
+	<div id="logged-in" style="display:none">
+		Logged in as <span id="current-user"></span> 
+		<a href="#" id = "logout">Logout</a>
+	</div>
+</body>
+</html>
