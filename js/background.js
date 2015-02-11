@@ -8,11 +8,10 @@
 {
 	function pushText(text)
 	{
-		console.log("start pushing " + text);
 		API.push(text, 
 			function(pasteUrl){
 				Clipboard.copyToClipboard(pasteUrl);
-			},
+			},	
 			function(){
 				console.log("Failed to push text");
 			});
@@ -28,11 +27,16 @@
 				alert("not authenticated");
 				API.authenticate();
 			}
-			var text = info['selectionText'];
-			if(text)
-			{
-				pushText(text);
-			}
+			//we dont use the selectionText parameter in info since its contains selected text w/o formatting
+			//instead we pass a message to our content script to send us the selected text
+			//see https://developer.chrome.com/extensions/messaging
+			
+			chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+			  chrome.tabs.sendMessage(tabs[0].id, {method : "getText"}, function(response) {
+			  	var text = response.text;
+			  	pushText(text);
+			  });
+			});
 		}
 	});
 
