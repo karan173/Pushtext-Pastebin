@@ -1,0 +1,11 @@
+/*
+	Dependencies : none
+*/
+Config = {
+	apiDeveloperKey : "your_developer_key",
+	defaults : {
+		accessGuest : "unlisted",
+		accessUser : "private",
+		expiry : "never"
+	}
+};
