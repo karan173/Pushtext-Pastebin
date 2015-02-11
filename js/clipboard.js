@@ -16,9 +16,7 @@ Clipboard = {
 	getClipboardText : function() {
 		//select the hidden element, paste clipboard text into it, then get it from the element
 		var result = '';
-		var dummy = $('#dummy');
-		dummy.val("hello");
-		dummy.select();
+		var dummy = $('#dummy').val('').select();
 		if (document.execCommand('paste')) 
 		{
 			result = dummy.val();
@@ -27,3 +25,5 @@ Clipboard = {
 		return result;
 	}
 };
+
+

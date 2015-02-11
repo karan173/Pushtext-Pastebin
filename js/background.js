@@ -19,35 +19,35 @@
 	}
 		
 	// see https://developer.chrome.com/extensions/contextMenus#method-create
-	// chrome.contextMenus.create({
-	// 	title : "Push selected text to Pastebin",
-	// 	contexts : ["selection"],
-	// 	onclick : function(info, tab){
-	// 		if(!Auth.getUserKey())
-	// 		{
-	// 			alert("not authenticated");
-	// 			API.authenticate();
-	// 		}
-	// 		var text = info['selectionText'];
-	// 		if(text)
-	// 		{
-	// 			pushText(text);
-	// 		}
-	// 	}
-	// });
+	chrome.contextMenus.create({
+		title : "Push selected text to Pastebin",
+		contexts : ["selection"],
+		onclick : function(info, tab){
+			if(!Auth.getUserKey())
+			{
+				alert("not authenticated");
+				API.authenticate();
+			}
+			var text = info['selectionText'];
+			if(text)
+			{
+				pushText(text);
+			}
+		}
+	});
 
 	$(document).ready(function(){
 		chrome.contextMenus.create({
 		title : "Push text from clipboard to Pastebin",
 		contexts : ["all"],
 		onclick : function(info, tab){
-			// if(!Auth.getUserKey())
-			// {
-			// 	alert("not authenticated");
-			// 	API.authenticate();
-			// }
+			if(!Auth.getUserKey())
+			{
+				alert("not authenticated");
+				API.authenticate();
+			}
 			var text = Clipboard.getClipboardText();
-			console.log(text);
+			pushText(text);
 		}
 	});
 	});
