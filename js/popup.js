@@ -13,7 +13,7 @@ $(document).ready(function(){
 		$('#current-user').text(Auth.getUserName());
 		$('#logout').click(function(){
 			Auth.logout();
-			window.close();
+            window.location.reload();
 		});
 		$('.logged-in').show();
 	}
@@ -25,10 +25,10 @@ $(document).ready(function(){
 			var password = $('#user_password').val();
             Logger.log(username + " " + password);
 			API.authenticate(username, password, function(){
-				alert("success in authentication");
+                    window.location.reload();
 				},
 				function(){
-					alert("error in authenticate");
+                    $('#login-error').text("Error in logging in").show();
 				});
 		});
 		$('#login-form').show();
@@ -37,6 +37,7 @@ $(document).ready(function(){
 	$('#options-submit').click(function(){
         Options.setExpiry($('#expiry').val()).setAccessGuest($('#privacy-guest').val())
             .setAccessUser($('#privacy-user').val());
+        $('#saved').show().delay(5000).fadeOut();
 	});
 
 	//set default values for options form

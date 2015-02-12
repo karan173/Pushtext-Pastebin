@@ -66,52 +66,69 @@
 	      <button type="button" class="btn btn-default" id="login-submit">Submit</button>
 	    </div>
 	  </div>
+      <div id="login-error" style="display: none">
+      </div>
 	</form>
 </div>
 <!--login form end-->
 
 <!--options -->
-Default options :-
 <br>
-<form class="form-horizontal" >
-  <div class="form-group">
-    <div class="col-sm-2 control-label">Expiry of Pastes created</div>
-    <select class="form-control" lass="col-sm-10" id="expiry">
-	  <option value="never">Never</option>
-	  <option value="10minutes">10 minutes</option>
-	  <option value="1hour">1 hour</option>
-	  <option value="1day">1 day</option>
-	  <option value="1week">1 week</option>
-	  <option value="2weeks">2 weeks</option>
-	  <option value="1month">1 month</option>
-	</select>
-  </div>
-  
-  <div class="form-group">
-    <div class="col-sm-2 control-label">Privacy as Guest</div>
-    <select class="form-control" lass="col-sm-10" id="privacy-guest">
-	  <option value="public">Public</option>
-	  <option value="unlisted">Unlisted</option>
-	</select>
-  </div>
-
-  <div class="form-group">
-    <div class="col-sm-2 control-label">Privacy when logged in</div>
-    <select class="form-control" lass="col-sm-10" id="privacy-user">
-	  <option value="public">Public</option>
-	  <option value="unlisted">Unlisted</option>
-	  <option value="private">Private</option>
-	</select>
-
-  </div>
-
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="button" class="btn btn-default" id="options-submit">Submit</button>
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="options-panel">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Options
+            </a>
+        </h4>
     </div>
-  </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="options-panel">
+        <div class="panel-body">
+            <form class="form-horizontal" >
+                <div class="form-group">
+                    <div class="col-sm-2 control-label">Expiry of Pastes created</div>
+                    <select class="form-control" lass="col-sm-10" id="expiry">
+                        <option value="never">Never</option>
+                        <option value="10minutes">10 minutes</option>
+                        <option value="1hour">1 hour</option>
+                        <option value="1day">1 day</option>
+                        <option value="1week">1 week</option>
+                        <option value="2weeks">2 weeks</option>
+                        <option value="1month">1 month</option>
+                    </select>
+                </div>
 
-</form>
+                <div class="form-group">
+                    <div class="col-sm-2 control-label">Privacy as Guest</div>
+                    <select class="form-control" lass="col-sm-10" id="privacy-guest">
+                        <option value="public">Public</option>
+                        <option value="unlisted">Unlisted</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 control-label">Privacy when logged in</div>
+                    <select class="form-control" lass="col-sm-10" id="privacy-user">
+                        <option value="public">Public</option>
+                        <option value="unlisted">Unlisted</option>
+                        <option value="private">Private</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn btn-default" id="options-submit">Submit</button>
+                    </div>
+                </div>
+
+            </form>
+            <div id="saved" style="display: none">
+                Saved
+            </div>
+        </div>
+    </div>
+</div>
 <!--options end -->
 
 
