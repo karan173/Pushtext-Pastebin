@@ -18,11 +18,13 @@
    },
    "background": {
     "page": "html/background.html"
-    }, 
+    }
+,
     "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "js": [ "js/script.js"]
+      "js": ["libs/jquery-2.1.0.min.js",  "js/script.js"],
+      "css" : ["css/status.css"]
     }
     ]
 }

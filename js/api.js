@@ -7,11 +7,11 @@
 */
 var API = {
 	
-	isGoodResponse : function(response){
-		return response && response.length >= 3 && response.substring(0, 3) !== "Bad";
-	},
 
 	push : function(text, successCallback, errorCallback){
+        function isGoodResponse(response){
+            return response.length > 4 && response.substring(0, 4) === "http";
+        }
 		var data = {
 			api_dev_key: Config.apiDeveloperKey,
 	        api_option : "paste",
@@ -24,36 +24,36 @@ var API = {
 			data.api_user_key = Auth.getUserKey();
 			data.api_paste_private = ApiEnums.accessEnum[Options.getAccessUser()];
 		}
-		var that = this;
 		$.ajax({
 		    url: "http://pastebin.com/api/api_post.php",
 		    data: data,
 		    type: "POST",
 		    dataType : "text", 
 		    success: function( response ) {
-		    	if(that.isGoodResponse(response))
+		    	if(isGoodResponse(response))
 		    	{
 		    		successCallback(response);
 		    	}
 		    	else
 		    	{
-		    		errorCallback();
+		    		errorCallback(response);
 		    	}
 		    },
 		    error: function( xhr, status, errorThrown ) {
-		        errorCallback();
+		        errorCallback("Some error occurred. Please contact the developer if the error persists.");
 		    }
 		});
 	},
 
 	authenticate : function(username, password, successCallback, errorCallback){
-        var that = this;
         var data = {
                 api_dev_key: Config.apiDeveloperKey,
                 api_user_name : username,
                 api_user_password : password
             };
-        Logger.log(JSON.stringify(data));
+        function isGoodResponse(response){
+            return response.length >= 3 && response.substring(0, 3) !== "Bad";
+        }
 		$.ajax({
 		    url: "http://pastebin.com/api/api_login.php",
 		    data: data,
@@ -61,8 +61,7 @@ var API = {
 		    dataType : "text",
 
 		    success: function( response ) {
-                Logger.log("success" + response);
-                if(that.isGoodResponse(response))
+                if(isGoodResponse(response))
 		    	{
 		    		Auth.storeUserCredentials(response, username);
 		    		successCallback();
