@@ -66,7 +66,7 @@
     <!--login form-->
     <div id="login-form" style="display:none">
         <div class="panel panel-default">
-            <div class="panel-body"  style="padding-bottom:20px; padding-top:15px;">
+            <div class="panel-body"  style="padding-bottom:5px; padding-top:10px;">
                 You are not logged in currently. To connect your Pastebin account to this extension, please login below.
                 <br/><br/>
                 <div class="container">
@@ -85,7 +85,8 @@
                         </div>
                     </form>
                     <div class="row">
-                        <div id="login-error" style="display: none">
+                        <div style="padding-top: 10px;">
+                        <p class="bg-danger"  style="display: none;font-weight: bold;" id="login-error">Error in logging in.</p>
                         </div>
                     </div>
                 </div>
@@ -153,9 +154,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div id="saved" style="display: none">
-                                Saved
-                            </div>
+                            <p class="bg-success" style="display: none; font-weight: bold;" id="saved">Saved</p>
                         </div>
                     </form>
                 </div>

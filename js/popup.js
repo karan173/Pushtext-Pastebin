@@ -7,23 +7,6 @@
 */
 
 $(document).ready(function(){
-    function getHyphenatedAppName()
-    {
-        return "pushtext-pastebin";
-    }
-    function getExtensionUrl()
-    {
-        var id = chrome.runtime.id;
-        return "https://chrome.google.com/webstore/detail/" + getHyphenatedAppName() +"/" + id;
-    }
-    function getFBUrl()
-    {
-        return "https://www.facebook.com/sharer/sharer.php?u=" + getExtensionUrl();
-    }
-    function getTwitterUrl()
-    {
-
-    }
 	if(Auth.isAuthenticated())
 	{
 		$('#current-user').text(Auth.getUserName());
@@ -35,15 +18,15 @@ $(document).ready(function(){
 	}
 	else
 	{
-
 		$('#login-submit').click(function(){
 			var username = $('#user_name').val();
 			var password = $('#user_password').val();
-			API.authenticate(username, password, function(){
+			API.authenticate(username, password,
+                function(){
                     window.location.reload();
 				},
 				function(){
-                    $('#login-error').text("Error in logging in").show();
+                    $('#login-error').show().delay(2500).fadeOut();
 				});
 		});
 		$('#login-form').show();
