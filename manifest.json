@@ -26,5 +26,13 @@
       "js": ["libs/jquery-2.1.0.min.js",  "js/script.js"],
       "css" : ["css/status.css"]
     }
-    ]
+    ],
+  "commands": {
+    "paste-from-clipboard": {
+      "suggested_key": {
+        "default": "Ctrl + Shift + 7"
+      },
+      "description": "Generate a paste from data in clipboard"
+    }
+  }
 }

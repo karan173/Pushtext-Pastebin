@@ -27,6 +27,12 @@
             });
     }
 
+    function clipboardPasteHandler(){
+        var text = Clipboard.getClipboardText();
+        sendMessage({"method": "startLoading"});
+        pushText(text);
+    }
+
     chrome.runtime.onInstalled.addListener(function(){
         // see https://developer.chrome.com/extensions/contextMenus#method-create
         chrome.contextMenus.create({
@@ -44,12 +50,15 @@
         chrome.contextMenus.create({
             title: "Push text from clipboard to Pastebin",
             contexts: ["all"],
-            onclick: function () {
-                var text = Clipboard.getClipboardText();
-                sendMessage({"method": "startLoading"});
-                pushText(text);
+            onclick: clipboardPasteHandler
+        });
+
+        chrome.commands.onCommand.addListener(function(command) {
+            if(command === 'paste-from-clipboard'){
+                clipboardPasteHandler();
             }
         });
     });
+
 
 })();
