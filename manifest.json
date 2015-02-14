@@ -1,5 +1,4 @@
 {
-  //https://developer.chrome.com/extensions/manifest
   "manifest_version": 2,
   "name": "Pushtext Pastebin",
   "short_name" : "Pushtext",
