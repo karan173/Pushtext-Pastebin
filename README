@@ -1,0 +1,13 @@
+PushText Pastebin is a Chrome extension which makes it easier to create and share pastes on Pastebin. Using text in your clipboard or the text you select on Chrome, the extension can quickly create a "paste" on Pastebin. Also, the url for the paste is automatically copied to your clipboard making it easier for you to instantly share code, snippets or just simple text.
+
+Usage ->
+1) Click on the extension icon to login to Pastebin or use as a Guest.
+2) Also, set the required options like Privacy and expiry of pastes.
+3) To generate a paste from data in clipboard, press "Ctrl+Shift+7" or right click on Chrome and select "Push Text from clipboard to Pastebin". The extension will notify you once your paste is ready and the url for the paste will be copied to your clipboard.
+4) To generate a paste from the text you have selected in Chrome, right click and select "Push Selected Text to Pastebin".
+
+Please review the extension if you like it!
+
+Developed by karan173[karan173@gmail.com]
+
+Also, if you use Pocket, check out my other extension, Batch Save Pocket
